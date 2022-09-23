@@ -453,7 +453,7 @@ PrefabInstance:
     - target: {fileID: 8206132519094806459, guid: 123f8edab38af924093b03d5e120a9aa, type: 3}
       propertyPath: balaPrefab
       value: 
-      objectReference: {fileID: 8094713257748607883, guid: 47e82d949ec6427448e49872f61ffab5, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 8206132519094806459, guid: 123f8edab38af924093b03d5e120a9aa, type: 3}
       propertyPath: cantidadBalas
       value: 10
