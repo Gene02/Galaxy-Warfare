@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public Transform cañon;
 
 
+
+
+
     Rigidbody2D rb2D;
     Vector2 movimiento;
     bool estaVivo;
