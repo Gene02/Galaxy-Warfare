@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemigo : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public Rigidbody2D enemy;
 
-    public float moveSpeed = 15.0f;
+    public float moveSpeed = 2f;
 
     public bool changeDirection = false;
 
@@ -25,11 +25,11 @@ public class Enemigo : MonoBehaviour
     {
         if(changeDirection == true)
         {
-            enemy.velocity = new Vector2(98, 0) * -1 * moveSpeed;
+            enemy.velocity = new Vector2(1, 0) * -1 * moveSpeed;
         }
         else if(changeDirection == false)
         {
-            enemy.velocity = new Vector2(15, 0) * moveSpeed;
+            enemy.velocity = new Vector2(1, 0) * moveSpeed;
         }
     }
 
