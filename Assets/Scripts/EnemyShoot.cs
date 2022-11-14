@@ -33,7 +33,6 @@ public class EnemyShoot : MonoBehaviour
             Instantiate (projectile, projectileSpawn.position, Quaternion.identity);
 
             nextFire -= currentTime;
-
             currentTime = 0.0f;
         }
     }
