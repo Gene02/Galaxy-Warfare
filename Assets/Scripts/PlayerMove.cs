@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
-    public float Speed;
-
+    public float speed;
+    
     void Start()
     {
-
+        
     }
 
-
+    
     void Update()
     {
         float x = Input.GetAxisRaw("Horizontal");
@@ -21,13 +21,10 @@ public class PlayerControl : MonoBehaviour
 
         Move(direction);
     }
-
     void Move(Vector2 direction)
     {
-        Camera gameCamera = gameCamera.main;
-
-        Vector3 minX = Camera.main.ViewportToWorldPoint(new Vector3(0, 0,0)).x;
-        Vector3 max = Camera.main.ViewportToWorldPoint(new Vector3(1, 1));
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
 
         max.x = max.x - 0.225f;
         min.x = min.x + 0.225f;
@@ -37,7 +34,7 @@ public class PlayerControl : MonoBehaviour
 
         Vector2 pos = transform.position;
 
-        pos += direction * Speed * Time.deltaTime;
+        pos += direction * speed * Time.deltaTime;
 
         pos.x = Mathf.Clamp(pos.x, min.x, max.x);
         pos.y = Mathf.Clamp(pos.y, min.y, max.y);
