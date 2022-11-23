@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1828159511858287204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.381, y: 0.789, z: 0}
-  m_LocalScale: {x: 0.02817984, y: 0.11673196, z: 0.55635}
+  m_LocalScale: {x: 0.02311796, y: 0.09576366, z: 0.4564141}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 4305304450911094551}
-  moveSpeed: 10
+  moveSpeed: 5
   limite: 15
