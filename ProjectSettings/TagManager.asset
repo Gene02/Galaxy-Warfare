@@ -7,6 +7,8 @@ TagManager:
   - Projectile
   - Bala
   - Enemy
+  - PlayerBullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -41,15 +43,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background Layer
+    uniqueID: 2271111295
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Fondo
-    uniqueID: 4125740807
-    locked: 0
-  - name: Player
-    uniqueID: 2163534737
-    locked: 0
-  - name: Naves
-    uniqueID: 3117646805
+  - name: Top Layer
+    uniqueID: 480566995
     locked: 0
