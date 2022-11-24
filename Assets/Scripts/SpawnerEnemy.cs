@@ -5,10 +5,11 @@ using UnityEngine;
 public class SpawnerEnemy : MonoBehaviour
 {
     public GameObject[] enemy;
+    public float respawnTime = 2f;
     
     void Start()
     {
-        SpawnEnemy();
+        StartCoroutine(EnemySpawner());
     }
 
     
@@ -16,8 +17,22 @@ public class SpawnerEnemy : MonoBehaviour
     {
         
     }
+
+    IEnumerator EnemySpawner()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(respawnTime);
+            SpawnEnemy();
+        }
+
+        
+    }
+
     void SpawnEnemy()
     {
-        Instantiate(enemy[0], transform.position, Quaternion.identity);
+        int randomValue = Random.Range(0, enemy.Length);
+        int randomXPos = Random.Range(-3, 3);
+        Instantiate(enemy[randomValue], new Vector2(randomXPos, transform.position.y), Quaternion.identity);
     }
 }

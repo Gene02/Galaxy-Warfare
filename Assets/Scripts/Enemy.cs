@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Transform spawnPointsEnemy1;
-    public Transform spawnPointsEnemy2;
+    public Transform []spawnPointsEnemy;
+    
     public GameObject enemyBullet;
     public float enemyBulletSpawnTime = 0.5f;
-    public GameObject explosionEnemigo;
+   
     public Healthbar healthbar;
     public float speed = 1f;
     public float health = 10f;
+    public GameObject explosionEnemigo;
+    public GameObject flash;
 
     float barSize = 1f;
     float damage = 0;
 
     void Start()
     {
+        flash.SetActive(false);
         StartCoroutine(EnemyShooting());
         damage = barSize / health;
     }
@@ -25,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        //transform.Translate(Vector2.up * speed * Time.deltaTime);
+        transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,7 +40,8 @@ public class Enemy : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(gameObject);
-                Instantiate(explosionEnemigo, transform.position, Quaternion.identity);
+                explosionEnemigo = Instantiate(explosionEnemigo, transform.position, Quaternion.identity);
+                Destroy(explosionEnemigo,0.4f);
             }
         }
     }
@@ -55,8 +59,13 @@ public class Enemy : MonoBehaviour
 
     void EnemyFire()
     {
-        Instantiate(enemyBullet, spawnPointsEnemy1.position, Quaternion.identity);
-        Instantiate(enemyBullet, spawnPointsEnemy2.position, Quaternion.identity);
+        for(int i = 0; i < spawnPointsEnemy.Length; i++)
+        {
+            Instantiate(enemyBullet, spawnPointsEnemy[i].position, Quaternion.identity);
+        }
+
+        //Instantiate(enemyBullet, spawnPointsEnemy1.position, Quaternion.identity);
+        //Instantiate(enemyBullet, spawnPointsEnemy2.position, Quaternion.identity);
 
     }
     IEnumerator EnemyShooting()
@@ -65,6 +74,9 @@ public class Enemy : MonoBehaviour
         {
             yield return new WaitForSeconds(enemyBulletSpawnTime);
             EnemyFire();
+            flash.SetActive(true);
+            yield return new WaitForSeconds(0.3f);
+            flash.SetActive(false);
         }
     }
 }
