@@ -8,26 +8,50 @@ public class Enemy : MonoBehaviour
     public Transform spawnPointsEnemy2;
     public GameObject enemyBullet;
     public float enemyBulletSpawnTime = 0.5f;
+    public GameObject explosionEnemigo;
+    public Healthbar healthbar;
     public float speed = 1f;
+    public float health = 10f;
+
+    float barSize = 1f;
+    float damage = 0;
 
     void Start()
     {
         StartCoroutine(EnemyShooting());
+        damage = barSize / health;
     }
 
 
     void Update()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        //transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "PlayerBullet")
         {
-            Destroy(gameObject);
+            DamageHealthbar();
+            Destroy(collision.gameObject);
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+                Instantiate(explosionEnemigo, transform.position, Quaternion.identity);
+            }
         }
     }
+
+    void DamageHealthbar()
+    {
+        if (health > 0)
+        {
+            health -= 1;
+            barSize = barSize - damage;
+            healthbar.SetSize(barSize);
+        }
+    }
+
 
     void EnemyFire()
     {
