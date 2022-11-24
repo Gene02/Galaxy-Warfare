@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    public GameObject explosion;
+    public PlayerHealthbar playerHealthbar;
     public float speed = 10f;
     public float padding = 0.8f;
     float minX;
     float maxX;
     float minY;
     float maxY;
+
+    public float health = 20f;
+    float barFillAmount = 1f;
+    float damage = 0;
+
     void Start()
     {
         FindBoundaries();
+        damage = barFillAmount / health;
     }
 
     void FindBoundaries()
@@ -40,7 +48,25 @@ public class PlayerMove : MonoBehaviour
     {
         if(collision.gameObject.tag == "EnemyBullet")
         {
-            Destroy(gameObject);
+            DamagePlayerHealthbar();
+            Destroy(collision.gameObject);
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+                GameObject blast = Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(blast, 0.5f);
+            }
+           
+
+        }
+    }
+    void DamagePlayerHealthbar()
+    {
+        if (health > 0)
+        {
+            health -= 1;
+            barFillAmount = barFillAmount - damage;
+            playerHealthbar.SetAmount(barFillAmount);
         }
     }
 }
