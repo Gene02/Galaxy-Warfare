@@ -18,6 +18,10 @@ public class LoadLevel : MonoBehaviour
     }
     public void Reload()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
