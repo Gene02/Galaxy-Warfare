@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     public GameObject explosion;
     public PlayerHealthbar playerHealthbar;
+    public GameController gameController;
 
     public CoinCount coinCountScript;
 
@@ -55,6 +56,7 @@ public class PlayerMove : MonoBehaviour
             Destroy(collision.gameObject);
             if (health <= 0)
             {
+                gameController.GameOver();
                 Destroy(gameObject);
                 GameObject blast = Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(blast, 0.5f);
