@@ -6,6 +6,9 @@ public class PlayerMove : MonoBehaviour
 {
     public GameObject explosion;
     public PlayerHealthbar playerHealthbar;
+
+    public CoinCount coinCountScript;
+
     public float speed = 10f;
     public float padding = 0.8f;
     float minX;
@@ -58,6 +61,11 @@ public class PlayerMove : MonoBehaviour
             }
            
 
+        }
+        if(collision.gameObject.tag == "Coin")
+        {
+            Destroy(collision.gameObject);
+            coinCountScript.AddCount();
         }
     }
     void DamagePlayerHealthbar()

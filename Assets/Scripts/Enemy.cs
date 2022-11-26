@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public float health = 10f;
     public GameObject explosionEnemigo;
     public GameObject flash;
+    public GameObject coinPrefab;
 
     float barSize = 1f;
     float damage = 0;
@@ -28,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        transform.Translate(Vector2.up * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +40,7 @@ public class Enemy : MonoBehaviour
             Destroy(collision.gameObject);
             if (health <= 0)
             {
+                Instantiate(coinPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject);
                 explosionEnemigo = Instantiate(explosionEnemigo, transform.position, Quaternion.identity);
                 Destroy(explosionEnemigo,0.4f);
