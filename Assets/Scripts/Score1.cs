@@ -7,10 +7,13 @@ public class Score1 : MonoBehaviour
 {
     public static int scoreValue = 0;
     Text score;
+    
 
     void Start()
     {
         score = GetComponent<Text>();
+  
+
     }
 
 

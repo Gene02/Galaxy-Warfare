@@ -572,8 +572,8 @@ MonoBehaviour:
   - {fileID: 8599831031862427355, guid: dc6dc77948ea62940abad8c0998a4937, type: 3}
   - {fileID: 8998971719939315746, guid: 2e7f27ef88a91f543b943e415e943b83, type: 3}
   - {fileID: 1956287159995924522, guid: a59d7d3f3c311314b9a4ae1295e909f6, type: 3}
-  respawnTime: 6
-  enemySpawnCount: 5
+  respawnTime: 3
+  enemySpawnCount: 35
   gameController: {fileID: 93054883}
 --- !u!4 &192307476
 Transform:
@@ -4789,7 +4789,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 2126646040}
   lines:
-  - Destroy five enemies and go to the next level
+  - Destroy thirty five enemies and go to the next level
+  - If you got here you are a professional player
   - Good Luck!
   textSpeed: 0.1
 --- !u!114 &1913496309

@@ -510,8 +510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d4ba69724de6f46be3998e06b2101c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  clipSound: {fileID: 0}
 --- !u!4 &505967597
 Transform:
   m_ObjectHideFlags: 0

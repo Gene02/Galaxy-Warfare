@@ -649,6 +649,7 @@ MonoBehaviour:
   health: 45
   explosionEnemigo: {fileID: 1424606368324045839, guid: 5f508286b519e1e45b4dbf5b1041da61, type: 3}
   flash: {fileID: 2665069354273828500}
+  corazonPrefab: {fileID: 922952089781665503, guid: 63ddff8f5c5373149860f7dbb7d0ae26, type: 3}
   bulletSound: {fileID: 8300000, guid: c5cbd1b98d362944b9b4df7c052d143e, type: 3}
   damageSound: {fileID: 8300000, guid: 554c7ca8d63b15c42a75827f9a32505b, type: 3}
   explosionSound: {fileID: 8300000, guid: 872ed4974bf333c4f840d15159741849, type: 3}

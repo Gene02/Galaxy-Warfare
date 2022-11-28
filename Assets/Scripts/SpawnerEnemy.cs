@@ -6,6 +6,10 @@ public class SpawnerEnemy : MonoBehaviour
 {
     public GameObject[] enemy;
     public float respawnTime = 2f;
+    public int enemySpawnCount = 10;
+    public GameController gameController;
+
+    private bool lastEnemySpawned = false;
     
     void Start()
     {
@@ -15,16 +19,20 @@ public class SpawnerEnemy : MonoBehaviour
     
     void Update()
     {
-        
+        if (lastEnemySpawned && FindObjectOfType<Enemy>() == null)
+        {
+            gameController.LevelComplete();
+        }
     }
 
     IEnumerator EnemySpawner()
     {
-        while (true)
+        for (int i = 0; i < enemySpawnCount; i++)
         {
             yield return new WaitForSeconds(respawnTime);
             SpawnEnemy();
         }
+        lastEnemySpawned = true;
 
         
     }

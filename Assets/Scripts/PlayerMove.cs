@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     public PlayerHealthbar playerHealthbar;
     public GameController gameController;
 
+   
 
     public float speed = 10f;
     public float padding = 0.8f;
@@ -53,8 +54,8 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if(collision.gameObject.tag == "EnemyBullet")
+
+        if (collision.gameObject.tag == "EnemyBullet")
         {
             audioSource.PlayOneShot(damageSound, 0.5f);
             DamagePlayerHealthbar();
@@ -74,6 +75,7 @@ public class PlayerMove : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+
     }
     void DamagePlayerHealthbar()
     {

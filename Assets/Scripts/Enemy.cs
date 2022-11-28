@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public float health = 10f;
     public GameObject explosionEnemigo;
     public GameObject flash;
-    /*public GameObject coinPrefab;*/
+    public GameObject coinPrefab;
 
     public AudioClip bulletSound;
     public AudioClip damageSound;

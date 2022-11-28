@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour
 {
-    
+    int currentIndex;
 
 
     void Start()
     {
-        
+        currentIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
 
@@ -18,9 +18,15 @@ public class LoadLevel : MonoBehaviour
     {
         
     }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(currentIndex+1);
+    }
+
     public void Reload()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(currentIndex);
     }
     public void QuitGame()
     {

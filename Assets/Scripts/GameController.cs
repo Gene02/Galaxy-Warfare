@@ -8,9 +8,12 @@ public class GameController : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject pauseButton;
     public GameObject GameOverPanel;
+    public GameObject levelCompletePanel;
 
     void Start()
     {
+        Time.timeScale = 1f;
+        levelCompletePanel.SetActive(false);
         pauseMenu.SetActive(false);
         pauseButton.SetActive(true);
         GameOverPanel.SetActive(false);
@@ -40,6 +43,13 @@ public class GameController : MonoBehaviour
         GameOverPanel.SetActive(true);
         pauseButton.SetActive(false);
     }
+
+    public void LevelComplete()
+    {
+        Time.timeScale = 0f;
+        levelCompletePanel.SetActive(true);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
