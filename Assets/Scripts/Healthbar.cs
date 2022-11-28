@@ -8,7 +8,7 @@ public class Healthbar : MonoBehaviour
     
     void Start()
     {
-        
+      
     }
 
    
@@ -20,4 +20,5 @@ public class Healthbar : MonoBehaviour
     {
         bar.localScale = new Vector2(size, 1f);
     }
+    
 }

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class LoadLevel : MonoBehaviour
 {
     
+
+
     void Start()
     {
         
@@ -23,5 +25,9 @@ public class LoadLevel : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

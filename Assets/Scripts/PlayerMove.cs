@@ -8,7 +8,6 @@ public class PlayerMove : MonoBehaviour
     public PlayerHealthbar playerHealthbar;
     public GameController gameController;
 
-    public CoinCount coinCountScript;
 
     public float speed = 10f;
     public float padding = 0.8f;
@@ -16,6 +15,10 @@ public class PlayerMove : MonoBehaviour
     float maxX;
     float minY;
     float maxY;
+
+    public AudioSource audioSource;
+    public AudioClip damageSound;
+    public AudioClip explosionSound;
 
     public float health = 20f;
     float barFillAmount = 1f;
@@ -50,12 +53,15 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if(collision.gameObject.tag == "EnemyBullet")
         {
+            audioSource.PlayOneShot(damageSound, 0.5f);
             DamagePlayerHealthbar();
             Destroy(collision.gameObject);
             if (health <= 0)
             {
+                AudioSource.PlayClipAtPoint(explosionSound, Camera.main.transform.position, 0.5f);
                 gameController.GameOver();
                 Destroy(gameObject);
                 GameObject blast = Instantiate(explosion, transform.position, Quaternion.identity);
@@ -67,7 +73,6 @@ public class PlayerMove : MonoBehaviour
         if(collision.gameObject.tag == "Coin")
         {
             Destroy(collision.gameObject);
-            coinCountScript.AddCount();
         }
     }
     void DamagePlayerHealthbar()
